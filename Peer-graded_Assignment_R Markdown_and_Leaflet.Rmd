@@ -1,0 +1,28 @@
+---
+title: "Peer-graded Assignment: R Markdown and Leaflet"
+author: "MvL"
+always_allow_html: yes
+---
+
+## Wednesday 1st of November 2017
+
+
+```{r, echo=FALSE, warning=FALSE}
+library(leaflet)
+set.seed(2017-11-01)
+
+df <- data.frame(lat = runif(20, min = 52.33, max = 52.4),
+                 lng = runif(20, min = 4.8, max = 5.07))
+myOffice<- data.frame(lat=52.364270, lng=5.069334)
+df <- rbind(myOffice, df)
+
+myPopup <- c("<a href='https://www.youtube.com/watch?v=mETC4WgYEu0'>My Office</a>",
+  "Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office","Find my office") 
+
+
+df %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(clusterOptions = markerClusterOptions(), popup = myPopup)
+  
+```
