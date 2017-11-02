@@ -1,0 +1,26 @@
+---
+title: 'Peer-graded Assignment: R Markdown Presentation & Plotly'
+author: "MvL"
+date: "2 november 2017"
+output: ioslides_presentation
+---
+
+##Hello!
+
+Welcome to my presentation, lets have a look in the next slide.
+
+## Thursday 2nd of November 2017
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(plotly)
+
+Dutch_population <- read.csv2("./Dutch_population.csv", sep = ";")
+
+Inhabitants <- as.data.frame(Dutch_population)
+
+plot_ly(Inhabitants, x = ~Time, y = ~Inhabitants, color = ~Region, type = "scatter", mode = "lines")
+```
+
+## Bye!
+
+Thanks for the attention and good luck grading!
